@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">SecureWebview</string>
+    <string name="batt_plugged">Plugged</string>
+    <string name="unplugged">Unplugged</string>
+    <string name="batt_temp">Temperature</string>
+    <string name="batt_voltage">Voltage</string>
+    <string name="batt_tech">Technology</string>
+    <string name="batt_status">Status</string>
+    <string name="batt_level">Level</string>
+    <string name="not_charging">Not Charging</string>
+    <string name="full">Full</string>
+    <string name="discharging">Discharging</string>
+    <string name="charging">Charging</string>
+    <string name="batt_health">Health:</string>
+    <string name="failure">Failure</string>
+    <string name="over_voltage">Over Voltage</string>
+    <string name="dead">Dead</string>
+    <string name="over_heat">Over Heat</string>
+    <string name="good">Good</string>
+    <string name="unknown">Unknown</string>
+    <string name="info_not_available">Information not available</string>
+
+    <!-- Description here. -->
+    <string name="sensor_info">%s sensor presents</string>
+    <string name="sensor_info2">%s sensors present</string>
+    <string name="sd_storage">SD card storage</string>
+    <!-- Description here. -->
+    <string name="internal_storage">Internal storage</string>
+    <!-- Description here. -->
+    <string name="cache_storage">System cache</string>
+    <string name="storage_summary">Total: %1$s, Free: %2$s</string>
+    <string name="sensors">Sensor</string>
+    <string name="net_address">Network</string>
+    <string name="system_storage">System storage</string>
+    <!-- Description here. -->
+    <string name="a2sd_storage">A2SD storage</string>
+    <string name="state">State</string>
+    <string name="pid">ProcessID</string>
+    <string name="threads">Threads</string>
+    <!-- Description here. -->
+    <string name="gid">GroupID</string>
+    <!-- Description here. -->
+    <string name="uid">UserID</string>
+    <!-- Description here. -->
+    <string name="importance">Importance</string>
+    <string name="proc_name">ProcessName</string>
+    <string name="pkg_name">PackageName</string>
+    <string name="show_cpu_summary">Show CPU usage for each process</string>
+    <string name="show_memory_summary">memoryusage for each process</string>
+    <string name="show_cpu_usage">CPUUsage</string>
+    <string name="show_memory_usage">MemoryUsage</string>
+
+
+    <string name="WsXmlStParams" translatable="false"><![CDATA[<WsXmlData><login><username></username><password></password></login><operation><object>StParameter</object><event>StParameterStaticAdd</event></operation><params></params><sensors></sensors><cpu></cpu></WsXmlData>]]></string>
+    <string name="WsXmlDownloadFile" transatable="false"><![CDATA[<WsXmlData><login><username></username><password></password></login><operation><object>XaFile</object><event>XaFileExport</event></operation><params></params></WsXmlData>]]></string>
+    <string name="WsXmlDynamicParams" translatable="false"><![CDATA[<WsXmlData><login><username></username><password></password></login><operation><object>StParameter</object><event>StParameterDynamicAdd</event></operation><params></params><cpu></cpu><battery></battery></WsXmlData>]]></string>
+    <string name="WsXmlLogin" translatable="false"><![CDATA[<WsXmlData><login><username></username><password></password></login><operation><object>XaUser</object><event>XaUserLoginFrm</event></operation><params><param><name></name><value></value></param></params></WsXmlData>]]></string>
+    <string name="WsXmlXaPages" translatable="false"><![CDATA[<WsXmlData><login><username></username><password></password></login><operation><object>XaPages</object><event>XaMyPage</event></operation><params><param><name></name><value></value></param></params></WsXmlData>]]></string>
+    <string name="WsGenericOperation" translatable="false"><![CDATA[<WsXmlData><login><username></username><password></password></login><operation><object></object><event></event></operation><params><param><name></name><value></value></param></params></WsXmlData>]]></string>
+
+</resources>

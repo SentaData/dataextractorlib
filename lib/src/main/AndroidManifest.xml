@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.senta.dataextractor">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application android:allowBackup="true">
+        <service
+            android:name="com.senta.dataextractor.StWsDataExtractionService"
+            android:enabled="true"
+            android:permission="" />
+    </application>
+
+</manifest>
