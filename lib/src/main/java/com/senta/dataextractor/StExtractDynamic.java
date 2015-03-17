@@ -37,13 +37,18 @@ public class StExtractDynamic implements Runnable {
     ArrayList<String> AllDynamic = new ArrayList<String>();
     String DynamicParamXmlString = "", DynamicParamB64XmlString = "";
     private ISentaSecurePrefs sentaPrefs;
+    private final String username;
+    private final String password;
 
-    public StExtractDynamic(Context _MyContext, String _DynamicStructureXmlB64, String _Url, ISentaSecurePrefs sentaPrefs) {
+
+    public StExtractDynamic(Context _MyContext, String _DynamicStructureXmlB64, String _Url, ISentaSecurePrefs sentaPrefs, String username, String password) {
 
         this.MyContext = _MyContext;
         this.DynamicStructureXmlB64 = _DynamicStructureXmlB64;
         this.Url = _Url;
         this.sentaPrefs = sentaPrefs;
+        this.username = username;
+        this.password = password;
     }
 
     @Override
@@ -52,8 +57,8 @@ public class StExtractDynamic implements Runnable {
         //if (MainActivity.DeviceRegistered==true && MainActivity.NetConnStatus==1 && MainActivity.MemoryFree==true) {
         Document dynamicDataDoc;
         dynamicDataDoc = StWsClient.createXmlDoc(DynamicStructureXmlB64);
-        dynamicDataDoc = obj.AddElementByXPath(dynamicDataDoc, "/WsXmlData/login/username", "alex@xallegro.com"/*email*/);
-        dynamicDataDoc = obj.AddElementByXPath(dynamicDataDoc, "/WsXmlData/login/password", /*password*/"abc");
+        dynamicDataDoc = obj.AddElementByXPath(dynamicDataDoc, "/WsXmlData/login/username", username);
+        dynamicDataDoc = obj.AddElementByXPath(dynamicDataDoc, "/WsXmlData/login/password", password);
 
         String[] ElementNameArray = {"name", "value"};
         String[] ElementValueArray;

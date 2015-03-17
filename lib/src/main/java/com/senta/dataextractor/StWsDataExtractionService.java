@@ -114,7 +114,7 @@ public class StWsDataExtractionService extends Service {
             try {
                 final String structureXmlB64 = getString(R.string.WsXmlDynamicParams);
                 ISentaSecurePrefs securePrefs = new DataExtractorPreferences();
-                new StExtractDynamic(getApplicationContext(), structureXmlB64, url, securePrefs).run();
+                new StExtractDynamic(getApplicationContext(), structureXmlB64, url, securePrefs, username, password).run();
                 Thread.sleep(SAMPLING_TIME);
             } catch (InterruptedException e) {
                 e.printStackTrace();
