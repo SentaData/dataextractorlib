@@ -14,16 +14,49 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 public class HttpManager {
 
     private static final String TAG = HttpManager.class.getName();
+    private HttpClient httpClient = new DefaultHttpClient();
+
+    public HttpManager() throws KeyManagementException, NoSuchAlgorithmException {
+        SSLContext ctx = SSLContext.getInstance("TLS");
+        ctx.init(null, new TrustManager[]{
+                new X509TrustManager() {
+                    public void checkClientTrusted(X509Certificate[] chain, String authType) {
+                    }
+
+                    public void checkServerTrusted(X509Certificate[] chain, String authType) {
+                    }
+
+                    public X509Certificate[] getAcceptedIssuers() {
+                        return new X509Certificate[]{};
+                    }
+                }
+        }, null);
+        HttpsURLConnection.setDefaultSSLSocketFactory(ctx.getSocketFactory());
+        HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() {
+            public boolean verify(String hostname, SSLSession session) {
+                return true;
+            }
+        });
+    }
 
     public String performRequest(String UrlString, String Base64Xml, String HexKey, String HexIv) {
 
-        HttpClient httpClient = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(UrlString);
         HttpEntity httpEntity;
         HttpResponse response;

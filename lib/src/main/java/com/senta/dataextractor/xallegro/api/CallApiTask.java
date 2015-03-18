@@ -8,13 +8,16 @@ import com.senta.dataextractor.SecurityUtilities;
 import com.senta.dataextractor.otto.BusProvider;
 import com.senta.dataextractor.otto.events.ApiCallFinished;
 
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+
 public class CallApiTask extends AsyncTask<Void, String, String> {
 
     private static final String TAG = CallApiTask.class.getName();
     private final String url;
-    private byte[] byteSymmetricKey;
-    private final HttpManager httpManager = new HttpManager();
+    private static byte[] byteSymmetricKey;
     private final com.senta.dataextractor.xallegro.api.ApiAction apiAction;
+    private HttpManager httpManager;
 
     public CallApiTask(ApiAction apiAction, String url) {
         this.apiAction = apiAction;
@@ -25,7 +28,13 @@ public class CallApiTask extends AsyncTask<Void, String, String> {
     protected String doInBackground(Void... unused) {
         final String hexKey = apiAction.getHexKey();
         byteSymmetricKey = SecurityUtilities.hexStringToByteArray(hexKey);
-        String result = httpManager.performRequest(url, apiAction.getBase64Xml(), hexKey, apiAction.getHexIv());
+        String result = null;
+        try {
+            httpManager = new HttpManager();
+            result = httpManager.performRequest(url, apiAction.getBase64Xml(), hexKey, apiAction.getHexIv());
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
+            e.printStackTrace();
+        }
         return decodeAndDecrypt(result);
     }
 

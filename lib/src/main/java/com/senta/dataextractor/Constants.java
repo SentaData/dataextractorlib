@@ -8,6 +8,10 @@ public interface Constants {
     public static final String PASSWORD = "password";
     public static final String URL_PROPERTY = "url";
 
+    public static final String DEMO_USERNAME = "pg@nowhere.com";
+    public static final String DEMO_PASSWORD = "ranokkio";
+    public static final String DEMO_URL = "https://demo1.sentadata.com";
+
     // preferences
     String PREF_KEY_REFRESH_INTERVAL = "refresh_interval"; //$NON-NLS-1$
 
