@@ -46,6 +46,9 @@ public class StWsDataExtractionService extends Service {
                 OnCollectStatic();
             }
         }).start(); */
+        if (intent == null)
+            return START_REDELIVER_INTENT;
+
         username = intent.getStringExtra(Constants.USERNAME);
         password = intent.getStringExtra(Constants.PASSWORD);
         url = intent.getStringExtra(Constants.URL_PROPERTY);
