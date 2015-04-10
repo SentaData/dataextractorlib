@@ -1,16 +1,16 @@
 ##Overview
-This is the Library/module that contains static data extraction, dynamic data extraction, a service for sending that data to the server and all the xallegro api calls.
+This is the Library/module that contains static data extraction, dynamic data extraction, a service for sending that data to the server and all the sentaworks api calls.
 It is used from Dataextractor application. 
 
 ![Package Diagram](https://sentasecure.atlassian.net/wiki/download/attachments/9928708/worddav25fd37e303fd97a9e538150e85f65a43.png?version=1&modificationDate=1426530418841&api=v2 "Package Diagram")
 
 ##Analysis
-###Xallegro Api
+###SentaWorks Api
 There are 3 separate entities. The api action, the http manager that sends the action to the server and the Task that handler the whole procedure (eg execution in a background thread) in a total of 3 layers of abstraction.
-Moreover each api call implements the ApiAction interface, so that we can create a separate class for each new xallegro api call. In this way we are respecting the Open-Closed principle.
+Moreover each api call implements the ApiAction interface, so that we can create a separate class for each new sentaworks api call. In this way we are respecting the Open-Closed principle.
 Currently there are 3 api actions: Generic, Dashboard, Register.
 GenericAction: Uses parametrised data like username, password and a list of param elements
-DashboardAction: The action for logging in the main xallegro dashboard
+DashboardAction: The action for logging in the main application dashboard
 RegisterAction: The action for registering a device in the senta secure server using phone's static parameters.
 The CallApiTask extends AsyncTask and uses the HttpManager to send the api call, through an Http post request, to the server.
 
