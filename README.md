@@ -2,7 +2,11 @@
 This is the Library/module that contains static data extraction, dynamic data extraction, a service for sending that data to the server and all the sentaworks api calls.
 It is used from Dataextractor application. 
 
-![Package Diagram](https://sentasecure.atlassian.net/wiki/download/attachments/9928708/worddav25fd37e303fd97a9e538150e85f65a43.png?version=1&modificationDate=1426530418841&api=v2 "Package Diagram")
+##Usage
+In order to add dataextractorlib to your project using gradle you can add the dependency:
+
+compile 'com.sentadata:dataextractorlib:1.0.0'
+
 
 ##Analysis
 ###SentaWorks Api
@@ -27,3 +31,6 @@ CreateXmlString method in the same class uses this list along with info about ph
 ####Dynamic
 Dynamic parameters are extracted in StExtractDynamic class is responsible for extracting phone's dynamic parameters. It implements Runnable interface and in the run method
 all the phone's dynamic parameters such as running processes, battery status and memory information are packaged in an xml request and sent to the server.
+
+###Documentation
+For library's javadoc please visit <a href="http://sentadata.github.io/dataextractor/">here</a>.
